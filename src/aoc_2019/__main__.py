@@ -1,8 +1,8 @@
 import argparse
 from importlib.resources import files
 
-from aoc import day_1, day_2
-from aoc.utils import contents
+from aoc_2019 import day_3, day_4
+from aoc_2019.utils import contents
 
 parser = argparse.ArgumentParser(prog="AOC", description="Advent of Code")
 parser.add_argument("day", help="The day to run.")
@@ -14,16 +14,16 @@ args = parser.parse_args()
 
 # Get the file contents
 filename = "test.txt" if args.test else "input.txt"
-path = files("aoc.inputs") / args.day / filename
+path = files("aoc_2019.inputs") / args.day / filename
 puzzle = contents.get_puzzle_input(path)
 
 match args.day:
-    case "day_1":
-        part_1 = day_1.part_1(puzzle)
-        part_2 = day_1.part_2(puzzle)
-    case "day_2":
-        part_1 = day_2.part_1(puzzle)
-        part_2 = day_2.part_2(puzzle)
+    case "day_3":
+        part_1 = day_3.part_1(puzzle)
+        part_2 = day_3.part_2(puzzle)
+    case "day_4":
+        part_1 = day_4.part_1(puzzle)
+        part_2 = day_4.part_2(puzzle)
     case _:
         raise ValueError("Unknown day!")
 
