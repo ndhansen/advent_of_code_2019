@@ -3,8 +3,8 @@ from dataclasses import dataclass
 from typing import Any
 
 import parse
+from aoc import Coord, Direction
 
-from aoc_2019.utils.common import Coord, Direction
 from aoc_2019.utils.contents import PuzzleInput
 
 
@@ -50,12 +50,18 @@ def get_all_between(first: Coord, second: Coord) -> list[Coord]:
     Gets all coordinates between the first and the second, including the second,
     without the first. Must be straight line.
     """
-    if first.x == second.x:
-        step = 1 if second.y > first.y else -1
-        return [Coord(first.x, y) for y in range(first.y + step, second.y + step, step)]
-    if first.y == second.y:
-        step = 1 if second.x > first.x else -1
-        return [Coord(x, first.y) for x in range(first.x + step, second.x + step, step)]
+    if first.col == second.col:
+        step = 1 if second.row > first.row else -1
+        return [
+            Coord(first.col, y)
+            for y in range(first.row + step, second.row + step, step)
+        ]
+    if first.row == second.row:
+        step = 1 if second.col > first.col else -1
+        return [
+            Coord(x, first.row)
+            for x in range(first.col + step, second.col + step, step)
+        ]
     raise ValueError("Must be on the same x or y axis.")
 
 
@@ -77,7 +83,7 @@ def part_1(puzzle: PuzzleInput) -> Any:
     overlap = sorted(list(set(wire_1_coords) & set(wire_2_coords)))
     assert len(overlap) > 0
     smallest: Coord = overlap[0]
-    return abs(smallest.x) + abs(smallest.y)
+    return abs(smallest.col) + abs(smallest.row)
 
 
 def count_steps(path: list[Coord], target: Coord) -> int:

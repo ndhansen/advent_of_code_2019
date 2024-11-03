@@ -5,34 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aoc_2019"
 version = "1.0.0"
-authors = [
-  { name="Nicholas Hansen", email="ndhansen@leskat.net" },
-]
-description = "Advent of Code 2023"
-requires-python = ">=3.11"
-dependencies = [
-  "parse"
-]
+authors = [{ name = "Nicholas Hansen", email = "ndhansen@leskat.net" }]
+description = "Advent of Code 2019"
+requires-python = ">=3.12"
+dependencies = ["parse"]
 
 [project.optional-dependencies]
-dev = [
-  "pudb",
-  "bpython",
-  "mypy",
-  "ruff",
-  "black",
-  "isort",
-]
-
-[tool.isort]
-known_first_party = ["aoc_2019"]
-skip_gitignore = true
+dev = ["pudb", "bpython", "mypy", "ruff"]
 
 [tool.mypy]
 strict = true
 
 [[tool.mypy.overrides]]
-module = [
-    "parse",
-]
+module = ["parse"]
 ignore_missing_imports = true
