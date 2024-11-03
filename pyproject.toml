@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "aoc_2019"
@@ -8,7 +8,7 @@ version = "1.0.0"
 authors = [{ name = "Nicholas Hansen", email = "ndhansen@leskat.net" }]
 description = "Advent of Code 2019"
 requires-python = ">=3.12"
-dependencies = ["parse"]
+dependencies = ["parse", "aoc @ {root:parent:uri}/advent_of_code_utils"]
 
 [project.optional-dependencies]
 dev = ["pudb", "bpython", "mypy", "ruff"]
@@ -19,3 +19,9 @@ strict = true
 [[tool.mypy.overrides]]
 module = ["parse"]
 ignore_missing_imports = true
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pyright]
+extraPaths = ["../advent_of_code_utils/"]
