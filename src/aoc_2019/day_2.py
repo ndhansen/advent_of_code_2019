@@ -1,7 +1,7 @@
 import itertools
 from typing import Any
 
-from aoc_2019.utils.contents import PuzzleInput
+from aoc.puzzle import PuzzleInput
 
 
 def run_program(program: list[int]) -> int:

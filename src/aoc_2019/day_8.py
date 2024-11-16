@@ -1,8 +1,7 @@
 from typing import Any
 
 from aoc.datatypes import Coord, itertools
-
-from aoc_2019.utils.contents import PuzzleInput
+from aoc.puzzle import PuzzleInput
 
 
 def get_layers(puzzle: PuzzleInput) -> list[list[str]]:

@@ -4,7 +4,7 @@ import enum
 from dataclasses import dataclass
 from typing import Any
 
-from aoc_2019.day_2 import PuzzleInput
+from aoc.puzzle import PuzzleInput
 
 
 class OpCode(enum.Enum):

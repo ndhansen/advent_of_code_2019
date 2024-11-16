@@ -1,8 +1,7 @@
 from typing import Any
 
 import parse
-
-from aoc_2019.utils.contents import PuzzleInput
+from aoc.puzzle import PuzzleInput
 
 
 def adjacent(num: int) -> bool:

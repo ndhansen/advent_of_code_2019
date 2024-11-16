@@ -4,8 +4,7 @@ from typing import Any
 
 import parse
 from aoc import Coord, Direction
-
-from aoc_2019.utils.contents import PuzzleInput
+from aoc.puzzle import PuzzleInput
 
 
 @dataclass(frozen=True)

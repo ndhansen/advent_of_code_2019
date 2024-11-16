@@ -2,8 +2,7 @@ from collections import defaultdict
 from typing import Any
 
 from aoc import bfs
-
-from aoc_2019.utils.contents import PuzzleInput
+from aoc.puzzle import PuzzleInput
 
 
 def parse_input(

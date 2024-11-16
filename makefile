@@ -7,12 +7,12 @@
 	touch $@
 
 
-.venv/.devsetup: .venv/.venvsetup
+.venv/.devsetup: | .venv/.venvsetup
 	.venv/bin/python3 -m uv pip install -e .[dev]
 	.venv/bin/python3 -m uv pip install -e ../advent_of_code_utils
 	touch $@
 
-develop: .venv/.devsetup
+develop: | .venv/.devsetup
 
 clean:
 	rm -rf .venv
