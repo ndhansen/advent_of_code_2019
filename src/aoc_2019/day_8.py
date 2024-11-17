@@ -60,9 +60,11 @@ def part_2(puzzle: PuzzleInput) -> Any:
                     pixels.append("_")
                     break
 
+    output = []
     i = 0
     for row in range(len(layers[0])):
         for col in range(len(layers[0][0])):
-            print(pixels[i], end="")
+            output.append(pixels[i])
             i += 1
-        print()
+        output.append("\n")
+    return "".join(output)
