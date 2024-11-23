@@ -36,7 +36,7 @@ def part_1(puzzle: PuzzleInput) -> Any:
             smallest_layer = index
             smallest_value = value
 
-    if not smallest_layer:
+    if smallest_layer is None:
         raise ValueError
 
     ones = sum(x.count("1") for x in layers[smallest_layer])
@@ -45,6 +45,7 @@ def part_1(puzzle: PuzzleInput) -> Any:
 
 
 def part_2(puzzle: PuzzleInput) -> Any:
+    """test"""
     layers = get_layers(puzzle)
     pixels = []
     for row, col in itertools.product(range(len(layers[0])), range(len(layers[0][0]))):

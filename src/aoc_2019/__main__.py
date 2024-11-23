@@ -1,7 +1,13 @@
 import argparse
+import sys
 from importlib.resources import files
+from pathlib import Path
+from types import FrameType
+from typing import Any
 
 from aoc import puzzle
+from rich.pretty import pprint
+from watchfiles import watch
 
 from aoc_2019 import day_2, day_3, day_4, day_5, day_6, day_8
 
@@ -46,9 +52,39 @@ match args.day:
     case _:
         raise ValueError("Unknown day!")
 
-# if args.watch:
 
-print("Part 1:")
-print(part_1(puzzle_input))
-print("Part 2:")
-print(part_2(puzzle_input))
+def trace_function(frame: FrameType, event: str, arg: Any):
+    if event == "return" and frame.f_code.co_name in ("part_1", "part_2"):
+        pprint(
+            dict(frame.f_locals),
+            max_string=80,
+            max_length=10,
+            max_depth=2,
+        )
+    return trace_function
+
+
+def run_puzzles() -> None:
+    print("Part 1:")
+    try:
+        print(part_1(puzzle_input))
+    except Exception as e:
+        print(e)
+    print("Part 2:")
+    try:
+        print(part_2(puzzle_input))
+    except Exception as e:
+        print(e)
+
+
+if args.watch:
+    current_path = Path(__file__).parent.parent
+    sys.settrace(trace_function)
+    run_puzzles()
+    for _ in watch(current_path, raise_interrupt=False):
+        run_puzzles()
+
+run_puzzles()
+
+if args.watch:
+    sys.settrace(None)

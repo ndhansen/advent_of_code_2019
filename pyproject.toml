@@ -8,10 +8,15 @@ version = "1.0.0"
 authors = [{ name = "Nicholas Hansen", email = "ndhansen@leskat.net" }]
 description = "Advent of Code 2019"
 requires-python = ">=3.12"
-dependencies = ["parse", "aoc @ {root:parent:uri}/advent_of_code_utils"]
+dependencies = [
+  "parse",
+  "watchfiles",
+  "rich",
+  "aoc @ {root:parent:uri}/advent_of_code_utils",
+]
 
 [project.optional-dependencies]
-dev = ["pudb", "bpython", "mypy", "ruff"]
+dev = ["pudb", "bpython", "mypy", "ruff", "ipython"]
 
 [tool.mypy]
 strict = true
