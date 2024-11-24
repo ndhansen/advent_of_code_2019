@@ -45,7 +45,6 @@ def part_1(puzzle: PuzzleInput) -> Any:
 
 
 def part_2(puzzle: PuzzleInput) -> Any:
-    """test"""
     layers = get_layers(puzzle)
     pixels = []
     for row, col in itertools.product(range(len(layers[0])), range(len(layers[0][0]))):

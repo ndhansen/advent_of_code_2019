@@ -18,6 +18,9 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pudb", "bpython", "mypy", "ruff", "ipython"]
 
+[project.entry-points.aoc]
+base = "aoc_2019"
+
 [tool.mypy]
 strict = true
 
